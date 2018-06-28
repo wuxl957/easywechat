@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+Route::any('/wechat/{app_id}', 'Wechat\WechatController@serve');
