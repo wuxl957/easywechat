@@ -19,12 +19,12 @@ class CreateWechatAccountsTable extends Migration
             $table->string('name')->index()->comment('公号名称');
             $table->string('secret')->comment('AppSecret(应用密钥)');
             $table->string('token')->comment('WeChat Token');
-            $table->string('aes_key')->nullable()->comment('消息加解密密钥');
+            $table->string('aes_key')->default('')->comment('消息加解密密钥');
             $table->tinyInteger('default_reply_type')->default(1)->comment('1text,2voice,3image,4news(byID),5latestNews(byAccount),6kf_session');
-            $table->string('default_reply')->nullable()->comment('default_reply');
-            $table->boolean('certified')->default(false)->comment('微信认证与否');
-            $table->json('menu')->nullable()->comment('json_menu');
-            $table->json('resources')->nullable()->comment('开启的资源');
+            $table->string('default_reply')->default('')->comment('默认回复type的内容');
+            $table->boolean('certified')->default(false)->comment('微信是否认证，默认：否');
+            $table->json('menu')->nullable()->comment('json：公众号菜单');
+            $table->json('resources')->nullable()->comment('json：开启的资源');
             $table->timestamps();
             $table->softDeletes();
         });

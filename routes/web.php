@@ -24,3 +24,5 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 Route::any('/wechat/{app_id}', 'Wechat\WechatController@serve');
+
+Route::get('/mid', 'Wechat\WechatController@get_mid');
